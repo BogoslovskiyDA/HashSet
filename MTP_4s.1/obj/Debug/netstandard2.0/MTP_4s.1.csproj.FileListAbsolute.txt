@@ -1,0 +1,8 @@
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s.1\bin\Debug\netstandard2.0\MTP_4s.1.deps.json
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s.1\bin\Debug\netstandard2.0\MTP_4s.1.dll
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s.1\bin\Debug\netstandard2.0\MTP_4s.1.pdb
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s.1\obj\Debug\netstandard2.0\MTP_4s.1.csprojAssemblyReference.cache
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s.1\obj\Debug\netstandard2.0\MTP_4s.1.AssemblyInfoInputs.cache
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s.1\obj\Debug\netstandard2.0\MTP_4s.1.AssemblyInfo.cs
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s.1\obj\Debug\netstandard2.0\MTP_4s.1.dll
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s.1\obj\Debug\netstandard2.0\MTP_4s.1.pdb

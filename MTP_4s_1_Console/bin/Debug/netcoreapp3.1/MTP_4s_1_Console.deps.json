@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "MTP_4s_1_Console/1.0.0": {
+        "dependencies": {
+          "MTP_4s.1": "1.0.0"
+        },
+        "runtime": {
+          "MTP_4s_1_Console.dll": {}
+        }
+      },
+      "MTP_4s.1/1.0.0": {
+        "runtime": {
+          "MTP_4s.1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MTP_4s_1_Console/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MTP_4s.1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

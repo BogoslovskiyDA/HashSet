@@ -1,0 +1,14 @@
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\bin\Debug\netcoreapp3.1\MTP_4s_1_Console.exe
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\bin\Debug\netcoreapp3.1\MTP_4s_1_Console.deps.json
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\bin\Debug\netcoreapp3.1\MTP_4s_1_Console.runtimeconfig.json
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\bin\Debug\netcoreapp3.1\MTP_4s_1_Console.runtimeconfig.dev.json
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\bin\Debug\netcoreapp3.1\MTP_4s_1_Console.dll
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\bin\Debug\netcoreapp3.1\MTP_4s_1_Console.pdb
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\bin\Debug\netcoreapp3.1\MTP_4s.1.dll
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\bin\Debug\netcoreapp3.1\MTP_4s.1.pdb
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\obj\Debug\netcoreapp3.1\MTP_4s_1_Console.csprojAssemblyReference.cache
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\obj\Debug\netcoreapp3.1\MTP_4s_1_Console.AssemblyInfoInputs.cache
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\obj\Debug\netcoreapp3.1\MTP_4s_1_Console.AssemblyInfo.cs
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\obj\Debug\netcoreapp3.1\MTP_4s_1_Console.csproj.CopyComplete
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\obj\Debug\netcoreapp3.1\MTP_4s_1_Console.dll
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_1_Console\obj\Debug\netcoreapp3.1\MTP_4s_1_Console.pdb
