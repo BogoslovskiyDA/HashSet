@@ -30,7 +30,9 @@ namespace MTP_4s._1
 
         public void Add(T value)
         {
-            var key = GetHash(value);
+            if (items == null)
+                items = new List<T>[25];
+            var key = GetHash(value);          
             while(key > Capacity)
                 AppendCapacity();
             if (items[key] == null)
@@ -67,7 +69,7 @@ namespace MTP_4s._1
 
         private int GetHash(T value)
         {      
-            return value.GetHashCode() % items.Length;
+            return Math.Abs(value.GetHashCode()) % items.Length;
         }
 
         public void Remove(T value)
@@ -171,11 +173,7 @@ namespace MTP_4s._1
         }
         public IEnumerator<T> GetEnumerator()
         {
-            /*for(int i = 0;i<items.Length;i++)
-            {
-                yield return this[i];
-            }*/
-            //return items.GetEnumerator();
+            
             throw new NotImplementedException();
         }
         IEnumerator IEnumerable.GetEnumerator()

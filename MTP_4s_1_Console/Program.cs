@@ -7,7 +7,12 @@ namespace MTP_4s_1_Console
     {
         static void Main(string[] args)
         {
-            HashSet<int> hs1 = new HashSet<int>();
+            HashSet<int> hs = new HashSet<int>();
+            hs.Add(1);
+            hs.Clear();
+            hs.Add(1);
+
+            /*HashSet<int> hs1 = new HashSet<int>();
             HashSet<int> hs2 = new HashSet<int>();
             HashSet<int> hs3 = new HashSet<int>();
             hs1.Add(1);
@@ -17,7 +22,7 @@ namespace MTP_4s_1_Console
             hs2.Add(4);
             hs2.Add(5);
             hs3 = hs1.Union(hs2);
-            Console.WriteLine(hs3.Count);
+            Console.WriteLine(hs3.Count);*/
             /*string a = "a";
             string b = "a";
             int c = Convert.ToInt32(a);

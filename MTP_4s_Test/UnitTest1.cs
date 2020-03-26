@@ -7,6 +7,16 @@ namespace MTP_4s_Test
     public class UnitTest1
     {
         [TestMethod]
+        public void TestAddingToEmptySet()
+        {
+            HashSet<int> hs = new HashSet<int>();
+            hs.Add(77);
+            Assert.AreEqual(1, hs.Count);
+            hs.Clear();
+            hs.Add(77);
+            Assert.AreEqual(1, hs.Count);
+        }
+        [TestMethod]
         public void TestAddingSameValues()
         {
             HashSet<int> hs = new HashSet<int>();
