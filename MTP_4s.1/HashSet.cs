@@ -69,11 +69,13 @@ namespace MTP_4s._1
 
         private int GetHash(T value)
         {      
-            return Math.Abs(value.GetHashCode()) % items.Length;
+            return value.ToString().Length;
         }
 
         public void Remove(T value)
         {
+            if (items == null)
+                return;
             var key = GetHash(value);
             if (items[key] != null)
             {

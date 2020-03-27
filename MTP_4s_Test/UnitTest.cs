@@ -4,7 +4,7 @@ using MTP_4s._1;
 namespace MTP_4s_Test
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTest
     {
         [TestMethod]
         public void TestAddingToEmptySet()
@@ -15,6 +15,25 @@ namespace MTP_4s_Test
             hs.Clear();
             hs.Add(77);
             Assert.AreEqual(1, hs.Count);
+        }
+        [TestMethod]
+        public void TestRemovingToEmptySet()
+        {
+            HashSet<int> hs = new HashSet<int>();
+            hs.Add(77);
+            Assert.AreEqual(1, hs.Count);
+            hs.Clear();
+            hs.Remove(1);
+            Assert.AreEqual(0, hs.Count);
+        }
+        [TestMethod]
+        public void TestContainsToEmptySet()
+        {
+            HashSet<int> hs = new HashSet<int>();
+            hs.Add(77);
+            Assert.AreEqual(1, hs.Count);
+            hs.Clear();
+            Assert.AreEqual(false, hs.Contains(77));
         }
         [TestMethod]
         public void TestAddingSameValues()
