@@ -7,10 +7,18 @@ namespace MTP_4s_1_Console
     {
         static void Main(string[] args)
         {
-            HashSet<int> hs = new HashSet<int>();
+            int value = 288;
+            int s = 0;
+            while (value > 0)
+            {
+                s += value % 10;
+                value /= 10;
+            }
+            Console.WriteLine(s);
+            /*HashSet<int> hs = new HashSet<int>();
             hs.Add(1);
             hs.Clear();
-            hs.Add(1);
+            hs.Add(1);/*
 
             /*HashSet<int> hs1 = new HashSet<int>();
             HashSet<int> hs2 = new HashSet<int>();

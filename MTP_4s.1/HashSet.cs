@@ -9,10 +9,10 @@ namespace MTP_4s._1
     {
         private List<T>[] items;
         private int cnt = 0;
-        private int Capacity { get; set; }
+        public int Capacity { get; private set; }
         public HashSet()
         {
-            Capacity = 25;
+            Capacity = 10;
             items = new List<T>[Capacity];
         }
         public int Count => this.cnt;
@@ -31,9 +31,9 @@ namespace MTP_4s._1
         public void Add(T value)
         {
             if (items == null)
-                items = new List<T>[25];
+                items = new List<T>[Capacity];
             var key = GetHash(value);          
-            while(key > Capacity)
+            while(key >= Capacity)
                 AppendCapacity();
             if (items[key] == null)
             {
@@ -54,6 +54,7 @@ namespace MTP_4s._1
         public void Clear()
         {
             cnt = 0;
+            Capacity = 10;
             items = null;
         }
         public bool Contains(T value)
@@ -68,8 +69,19 @@ namespace MTP_4s._1
         }
 
         private int GetHash(T value)
-        {      
-            return value.ToString().Length;
+        {
+            int key = 0;
+            int v = Math.Abs(value.GetHashCode());
+            while(v > 0)
+            {
+                key += v % 10;
+                v /= 10;
+            }
+            /*for (int i = 0; i < value.ToString().Length; i++)
+                key += Convert.ToInt32(value.GetHashCode().ToString()[i]);*/
+            return key;
+            //return Convert.ToInt32(value.GetHashCode().ToString()[0]) * Convert.ToInt32(value.GetHashCode().ToString()[5]);
+            //return value.ToString().Length % 2 == 0 ? value.ToString().Length * 2 : value.ToString().Length * 2 - 1;
         }
 
         public void Remove(T value)
@@ -86,7 +98,7 @@ namespace MTP_4s._1
         private void AppendCapacity()
         {
             var tempitems = this.items;
-            Capacity *= 2;
+            Capacity += 10;
             this.items = new List<T>[Capacity];
             for (int i = 0; i < tempitems.Length; i++)
             {

@@ -7,6 +7,15 @@ namespace MTP_4s_Test
     public class UnitTest
     {
         [TestMethod]
+        public void TestAppendcapacity()
+        {
+            HashSet<int> hs = new HashSet<int>();
+            hs.Add(7);
+            Assert.AreEqual(10, hs.Capacity);
+            hs.Add(28);
+            Assert.AreEqual(20, hs.Capacity);
+        }
+        [TestMethod]
         public void TestAddingToEmptySet()
         {
             HashSet<int> hs = new HashSet<int>();
