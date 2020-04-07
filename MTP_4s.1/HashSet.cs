@@ -187,8 +187,13 @@ namespace MTP_4s._1
         }
         public IEnumerator<T> GetEnumerator()
         {
-            
-            throw new NotImplementedException();
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i] != null)
+                    foreach (var item in items[i])
+                        yield return item;
+            }
+            //throw new NotImplementedException();
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
