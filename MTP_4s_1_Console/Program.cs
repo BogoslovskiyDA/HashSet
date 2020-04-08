@@ -12,6 +12,7 @@ namespace MTP_4s_1_Console
             {
                 hs.Add(i.ToString());
             }
+            hs.Add(null);
             foreach (var item in hs)
             {
                 Console.WriteLine(item);

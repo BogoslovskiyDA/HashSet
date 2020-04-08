@@ -1,11 +1,47 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MTP_4s._1;
+using System;
 
 namespace MTP_4s_Test
 {
+    public class TestHash
+    {
+        private int hash;
+        private string value;
+        public TestHash(int hash,string value)
+        {
+            this.hash = hash;
+            this.value = value;
+        }
+        public override int GetHashCode()
+        {
+            return hash;
+        }
+        public override bool Equals(object obj)
+        {
+            return ((TestHash)obj).value == this.value;
+        }
+    }
+
     [TestClass]
     public class UnitTest
     {
+        [TestMethod]
+        public void TestContains()
+        {
+            TestHash a = new TestHash(1,"a");
+            TestHash b = new TestHash(1, "b");
+            HashSet<TestHash> tests = new HashSet<TestHash>();
+            tests.Add(a);
+            tests.Remove(b);
+            Assert.AreEqual(1,tests.Count);
+        }
+        [TestMethod]
+        public void TestAddingNullValue()
+        {
+            HashSet<string> hs = new HashSet<string>();
+            Assert.ThrowsException<ArgumentNullException>(() => { hs.Add(null); }  ) ;
+        }
         [TestMethod]
         public void TestAppendCapacity()
         {
@@ -62,7 +98,7 @@ namespace MTP_4s_Test
             hs.Add(777);
             Assert.AreEqual(3, hs.Count);
         }
-        [TestMethod]
+        /*[TestMethod]
         public void TestContains()
         {
             HashSet<int> hs = new HashSet<int>();
@@ -70,7 +106,7 @@ namespace MTP_4s_Test
             hs.Add(77);
             hs.Add(777);
             Assert.AreEqual(true, hs.Contains(7));
-        }
+        }*/
         [TestMethod]
         public void TestRemoveCount()
         {

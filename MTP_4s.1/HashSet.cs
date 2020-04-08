@@ -30,11 +30,13 @@ namespace MTP_4s._1
 
         public void Add(T value)
         {
+            if (value == null)
+                throw new ArgumentNullException();
             if (items == null)
                 items = new List<T>[Capacity];
-            var key = GetHash(value);          
-            while(key >= Capacity)
-                AppendCapacity();
+            var key = GetHash(value);
+            if(key >= Capacity)
+                AppendCapacity(key);
             if (items[key] == null)
             {
                 items[key] = new List<T>() { value };
@@ -42,7 +44,7 @@ namespace MTP_4s._1
             }
             else
             {
-                if (items[key].Contains(value) != true)
+                if (!items[key].Contains(value))
                 {
                     items[key].Add(value);
                     cnt++;
@@ -59,9 +61,13 @@ namespace MTP_4s._1
         }
         public bool Contains(T value)
         {
+            if (value == null)
+                throw new ArgumentNullException();
             if (cnt == 0)
                 return false;
             var key = GetHash(value);
+            if (key > items.Length)
+                return false;
             if (items[key] == null)
                 return false;
             else
@@ -86,19 +92,27 @@ namespace MTP_4s._1
 
         public void Remove(T value)
         {
+            if (value == null)
+                throw new ArgumentNullException();
             if (items == null)
                 return;
             var key = GetHash(value);
             if (items[key] != null)
             {
-                items[key].Remove(value);
-                cnt--;
+                if(items[key].Contains(value) == true)
+                {
+                    items[key].Remove(value);
+                    cnt--;
+                }
             }
         }
-        private void AppendCapacity()
+        private void AppendCapacity(int c)
         {
             var tempitems = this.items;
-            Capacity += 10;
+            while (c >= Capacity)
+            {
+                Capacity += 10;
+            }
             this.items = new List<T>[Capacity];
             for (int i = 0; i < tempitems.Length; i++)
             {
@@ -193,12 +207,10 @@ namespace MTP_4s._1
                     foreach (var item in items[i])
                         yield return item;
             }
-            //throw new NotImplementedException();
         }
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-            //throw new NotImplementedException();
         }
     }
 }
