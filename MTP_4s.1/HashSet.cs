@@ -199,18 +199,72 @@ namespace MTP_4s._1
             }
             return result;
         }
+
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < items.Length; i++)
-            {
-                if (items[i] != null)
-                    foreach (var item in items[i])
-                        yield return item;
-            }
+            return new HashSetEnumerator(items);
         }
+
         IEnumerator IEnumerable.GetEnumerator()
         {
-            return GetEnumerator();
+            return new HashSetEnumerator(items);
+        }
+
+        public class HashSetEnumerator : IEnumerator<T>
+        {
+            List<T>[] items;
+            int position_1;
+            int position_2;
+            public HashSetEnumerator(List<T>[] items)
+            {
+                this.items = items;
+                position_1 = -1;
+                position_2 = -1;
+            }
+            public object Current => Current;
+
+            T IEnumerator<T>.Current
+            {
+                get
+                {
+                    if (position_1 == -1 || position_2 == -1 || position_1 >= items.Length)
+                        throw new InvalidOperationException();
+                    return items[position_1][position_2];
+                }
+            }
+            public void Dispose()
+            { }
+
+            public bool MoveNext()
+            {
+                if (position_1 == -1)
+                    position_1++;
+                if (items[position_1] != null)
+                {
+                    if (position_2 >= items[position_1].Count - 1)
+                    {
+                        position_1++;
+                        position_2 = -1;
+                    }
+                }
+                while (items[position_1] == null && position_1 < items.Length - 1)
+                {
+                    position_1++;
+                }
+                if (position_1 < items.Length - 1)
+                {                   
+                    position_2++;
+                    return true;
+                }
+                else
+                    return false;
+            }
+
+            public void Reset()
+            {
+                position_1 = -1;
+                position_2 = -1;
+            }
         }
     }
 }

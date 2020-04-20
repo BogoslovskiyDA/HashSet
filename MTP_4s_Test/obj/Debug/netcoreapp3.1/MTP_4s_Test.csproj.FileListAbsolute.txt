@@ -92,3 +92,5 @@ C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_Test\obj\Debug\netcoreapp3.1\MTP_4s_
 C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_Test\obj\Debug\netcoreapp3.1\MTP_4s_Test.csproj.CopyComplete
 C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_Test\obj\Debug\netcoreapp3.1\MTP_4s_Test.dll
 C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_Test\obj\Debug\netcoreapp3.1\MTP_4s_Test.pdb
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_Test\obj\Debug\netcoreapp3.1\MTP_4s_Test.csproj.CoreCompileInputs.cache
+C:\an.morgana\MTP\4 semestr\MTP_4s.1\MTP_4s_Test\obj\Debug\netcoreapp3.1\MTP_4s_Test.genruntimeconfig.cache
