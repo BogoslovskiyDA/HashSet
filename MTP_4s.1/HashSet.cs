@@ -9,10 +9,10 @@ namespace MTP_4s._1
     {
         private List<T>[] items;
         private int cnt = 0;
-        public int Capacity { get; private set; }
+        public const int Capacity = 10 ;
+        public int DinamicCapacity = 10;
         public HashSet()
         {
-            Capacity = 10;
             items = new List<T>[Capacity];
         }
         public int Count => this.cnt;
@@ -35,7 +35,7 @@ namespace MTP_4s._1
             if (items == null)
                 items = new List<T>[Capacity];
             var key = GetHash(value);
-            if(key >= Capacity)
+            if(key >= items.Length)
                 AppendCapacity(key);
             if (items[key] == null)
             {
@@ -56,8 +56,8 @@ namespace MTP_4s._1
         public void Clear()
         {
             cnt = 0;
-            Capacity = 10;
-            items = null;
+            DinamicCapacity = 10;
+            items = new List<T>[Capacity];
         }
         public bool Contains(T value)
         {
@@ -107,18 +107,19 @@ namespace MTP_4s._1
             }
         }
         private void AppendCapacity(int c)
-        {
-            var tempitems = this.items;
-            while (c >= Capacity)
+        {           
+            var tempitems = items;
+            while (c >= DinamicCapacity)
             {
-                Capacity += 10;
-            }
-            this.items = new List<T>[Capacity];
-            for (int i = 0; i < tempitems.Length; i++)
+                DinamicCapacity += 10;
+            }           
+            items = new List<T>[DinamicCapacity];
+            Array.Copy(tempitems, items, tempitems.Length);
+            /*for (int i = 0; i < tempitems.Length; i++)
             {
                 if(tempitems[i] != null)
                     items[i] = new List<T>(tempitems[i]);
-            }
+            }*/
         }
 
         public HashSet<T> Union(HashSet<T> set)
@@ -210,7 +211,7 @@ namespace MTP_4s._1
             return new HashSetEnumerator(items);
         }
 
-        public class HashSetEnumerator : IEnumerator<T>
+        private class HashSetEnumerator : IEnumerator<T>
         {
             List<T>[] items;
             int position_1;
@@ -221,8 +222,15 @@ namespace MTP_4s._1
                 position_1 = -1;
                 position_2 = -1;
             }
-            public object Current => Current;
-
+            public object Current
+            {
+                get
+                {
+                    if (position_1 == -1 || position_2 == -1 || position_1 >= items.Length)
+                        throw new InvalidOperationException();
+                    return items[position_1][position_2];
+                }
+            }
             T IEnumerator<T>.Current
             {
                 get

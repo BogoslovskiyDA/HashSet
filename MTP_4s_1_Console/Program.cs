@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using MTP_4s._1;
 
 namespace MTP_4s_1_Console
@@ -7,15 +8,22 @@ namespace MTP_4s_1_Console
     {
         static void Main(string[] args)
         {
-            HashSet<string> hs = new HashSet<string>();
+            HashSet<int> hs = new HashSet<int>();
             for (int i = 0; i < 5; i++)
             {
-                hs.Add(i.ToString());
+                hs.Add(i);
             }
-            foreach (var item in hs)
+            IEnumerator ie = hs.GetEnumerator();
+            while (ie.MoveNext())
             {
+                int item = (int)ie.Current;
                 Console.WriteLine(item);
             }
+            ie.Reset();
+            /*foreach (var item in hs)
+            {
+                Console.WriteLine(item);
+            }*/
             /*HashSet<int> hs1 = new HashSet<int>();
             HashSet<int> hs2 = new HashSet<int>();
             HashSet<int> hs3 = new HashSet<int>();

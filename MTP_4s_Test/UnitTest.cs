@@ -27,6 +27,21 @@ namespace MTP_4s_Test
     public class UnitTest
     {
         [TestMethod]
+        public void TestGetEnumerator()
+        {
+            HashSet<int> hs = new HashSet<int>();
+            System.Collections.Generic.List<int> ts = new System.Collections.Generic.List<int>();
+            for(int i = 0; i < 5;i++)
+            {
+                ts.Add(i);
+                hs.Add(i);
+            }
+            foreach(var h in hs)
+            {
+                Assert.AreEqual(true, ts.Contains(h));
+            }
+        }
+        [TestMethod]
         public void TestContains()
         {
             TestHash a = new TestHash(1,"a");
@@ -47,9 +62,9 @@ namespace MTP_4s_Test
         {
             HashSet<int> hs = new HashSet<int>();
             hs.Add(7);
-            Assert.AreEqual(10, hs.Capacity);
+            Assert.AreEqual(10, hs.DinamicCapacity);
             hs.Add(28);
-            Assert.AreEqual(20, hs.Capacity);
+            Assert.AreEqual(20, hs.DinamicCapacity);
         }
         [TestMethod]
         public void TestAddingToEmptySet()
