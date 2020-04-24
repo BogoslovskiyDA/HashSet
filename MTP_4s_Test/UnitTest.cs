@@ -39,7 +39,9 @@ namespace MTP_4s_Test
             foreach(var h in hs)
             {
                 Assert.AreEqual(true, ts.Contains(h));
+                ts.Remove(h);
             }
+            Assert.AreEqual(0, ts.Count);
         }
         [TestMethod]
         public void TestContains()
@@ -62,9 +64,9 @@ namespace MTP_4s_Test
         {
             HashSet<int> hs = new HashSet<int>();
             hs.Add(7);
-            Assert.AreEqual(10, hs.DinamicCapacity);
+            Assert.AreEqual(1, hs.Count);
             hs.Add(28);
-            Assert.AreEqual(20, hs.DinamicCapacity);
+            Assert.AreEqual(2, hs.Count);
         }
         [TestMethod]
         public void TestAddingToEmptySet()
@@ -113,15 +115,6 @@ namespace MTP_4s_Test
             hs.Add(777);
             Assert.AreEqual(3, hs.Count);
         }
-        /*[TestMethod]
-        public void TestContains()
-        {
-            HashSet<int> hs = new HashSet<int>();
-            hs.Add(7);
-            hs.Add(77);
-            hs.Add(777);
-            Assert.AreEqual(true, hs.Contains(7));
-        }*/
         [TestMethod]
         public void TestRemoveCount()
         {

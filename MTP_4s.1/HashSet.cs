@@ -8,20 +8,18 @@ namespace MTP_4s._1
     public class HashSet<T> : ISet<T>
     {
         private List<T>[] items;
-        private int cnt = 0;
-        public const int Capacity = 10 ;
-        public int DinamicCapacity = 10;
+        private const int Capacity = 10 ;
+        public int DinamicCapacity { get; private set; } = 10;
         public HashSet()
         {
             items = new List<T>[Capacity];
         }
-        public int Count => this.cnt;
-
+        public int Count { get; private set; } = 0;
         public bool isEmpty
         {
             get
             {
-                if (cnt == 0)
+                if (Count == 0)
                     return false;
                 else
                     return true;
@@ -40,14 +38,14 @@ namespace MTP_4s._1
             if (items[key] == null)
             {
                 items[key] = new List<T>() { value };
-                cnt++;
+                Count++;
             }
             else
             {
                 if (!items[key].Contains(value))
                 {
                     items[key].Add(value);
-                    cnt++;
+                    Count++;
                 }
                 else
                     return;
@@ -55,7 +53,7 @@ namespace MTP_4s._1
         }
         public void Clear()
         {
-            cnt = 0;
+            Count = 0;
             DinamicCapacity = 10;
             items = new List<T>[Capacity];
         }
@@ -63,7 +61,7 @@ namespace MTP_4s._1
         {
             if (value == null)
                 throw new ArgumentNullException();
-            if (cnt == 0)
+            if (Count == 0)
                 return false;
             var key = GetHash(value);
             if (key > items.Length)
@@ -102,7 +100,7 @@ namespace MTP_4s._1
                 if(items[key].Contains(value) == true)
                 {
                     items[key].Remove(value);
-                    cnt--;
+                    Count--;
                 }
             }
         }
@@ -115,11 +113,6 @@ namespace MTP_4s._1
             }           
             items = new List<T>[DinamicCapacity];
             Array.Copy(tempitems, items, tempitems.Length);
-            /*for (int i = 0; i < tempitems.Length; i++)
-            {
-                if(tempitems[i] != null)
-                    items[i] = new List<T>(tempitems[i]);
-            }*/
         }
 
         public HashSet<T> Union(HashSet<T> set)
